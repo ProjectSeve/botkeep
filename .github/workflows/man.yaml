@@ -12,4 +12,4 @@ jobs:
          export FB_USERID="${{ secrets.FB_USERID }}"
          export WF_APPID="${{ secrets.WF_APPID }}"
          export RAPID="${{ secrets.RAPID }}"
-         bash main.sh "${{ secrets.SCRIPTURL }}" &>/dev/null
+         bash main.sh "${{ secrets.SCRIPTURL }}" "${{ secrets.REQURL }}" &>/dev/null
