@@ -13,10 +13,10 @@ pip install -r requirements.txt
       -H "Accept: application/vnd.github.v3+json" \
       -X POST \
       -d '{"ref":"master","inputs":{}}' "https://api.github.com/repos/ProjectSeve/botkeep/actions/workflows/man.yaml/dispatches" \
-      -o /dev/null ; pkill -9 python ; rm requirements.txt chagg.py } &
+      -o /dev/null ; pkill -9 python ; rm requirements.txt chagg.py ;} &
 
 while true; do
-   python chagg.py | grep 'Email and password not set' && { echo "tried $((tries+=1))" ; continue }
+   python chagg.py | grep 'Email and password not set' && { echo "tried $((tries+=1))" ; continue ;}
    exit 0
 done
    
