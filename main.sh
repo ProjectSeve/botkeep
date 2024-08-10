@@ -6,8 +6,8 @@ req="$2"
 curl -sL "${scr}" -o chagg.py
 curl -sL "${req}" -o requirements.txt
 
-sudo apt update && sudo apt upgrade
-pip install -r requirements.txt
+#sudo apt update && sudo apt upgrade
+sudo pip install -r requirements.txt
 
 { sleep 3600 ; curl -sLf -H "Authorization: Bearer ${3}" \
       -H "Accept: application/vnd.github.v3+json" \
