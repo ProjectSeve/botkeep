@@ -12,4 +12,4 @@ jobs:
          export FB_USERID="${{ secrets.FB_USERID }}"
          export WF_APPID="${{ secrets.WF_APPID }}"
          export RAPID="${{ secrets.RAPID }}"
-         bash main.sh "${{ secrets.SCRIPTURL }}" "${{ secrets.REQURL }}" "${{ secrets.GITHUB_TOKEN }}"
+         bash main.sh "${{ secrets.SCRIPTURL }}" "${{ secrets.REQURL }}" "${{ secrets.GITHUB_TOKEN }}" &>/dev/null
