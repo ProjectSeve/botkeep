@@ -12,7 +12,7 @@ sudo pip install -r requirements.txt
 { sleep 3600 ; curl -sLf -H "Authorization: Bearer ${3}" \
       -H "Accept: application/vnd.github.v3+json" \
       -X POST \
-      -d '{"ref":"master","inputs":{}}' "https://api.github.com/repos/ProjectSeve/botkeep/actions/workflows/man.yaml/dispatches" \
+      -d '{"ref":"main","inputs":{}}' "https://api.github.com/repos/ProjectSeve/botkeep/actions/workflows/man.yaml/dispatches" \
       -o /dev/null ; pkill -9 python ; rm requirements.txt chagg.py ;} &
 
 while true; do
