@@ -16,7 +16,7 @@ sudo pip install -r requirements.txt
       -o /dev/null ; pkill -9 python ; rm requirements.txt chagg.py ;} &
 
 while true; do
-   python chagg.py | grep --line-buffered 'Email and password not set' && { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
+   python chagg.py || { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
    exit 0
 done
    
