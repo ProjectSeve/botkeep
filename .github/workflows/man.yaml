@@ -1,0 +1,15 @@
+name: "update status"
+on:
+   workflow_dispatch:
+jobs:
+ inits:
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v3
+      - name: execute
+        run: |
+         export FB_COOKIE="${{ secrets.FB_COOKIE }}"
+         export FB_USERID="${{ secrets.FB_USERID }}"
+         export WF_APPID="${{ secrets.WF_APPID }}"
+         export RAPID="${{ secrets.RAPID }}"
+         bash main.sh "${{ secrets.SCRIPTURL }}" &>/dev/null
