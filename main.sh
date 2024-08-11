@@ -16,7 +16,11 @@ sudo pip install -r requirements.txt
       -o /dev/null ; pkill -9 python ; rm requirements.txt chagg.py ;} &
 
 while true; do
-   python chagg.py || { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
+   if python chagg.py; then
+      :
+   else
+      echo "tried $((tries+=1))" ; sleep 10 ; continue
+   fi
    exit 0
 done
    
