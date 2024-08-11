@@ -13,14 +13,9 @@ sudo pip install -r requirements.txt
       -H "Accept: application/vnd.github.v3+json" \
       -X POST \
       -d '{"ref":"main","inputs":{}}' "https://api.github.com/repos/ProjectSeve/botkeep/actions/workflows/man.yaml/dispatches" \
-      -o /dev/null ; rm requirements.txt chagg.py ; exit 0 ;} &
+      -o /dev/null ; rm requirements.txt chagg.py ; pkill -9 python ; exit 0 ;} &
 
 while true; do
-   if python chagg.py; then
-      :
-   else
-      echo "tried $((tries+=1))" ; sleep 10 ; continue
-   fi
-   exit 0
+    python chagg.py || { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
+    [ "$i" -gt 10 ] && exit 1
 done
-   
