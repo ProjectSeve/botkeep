@@ -17,5 +17,5 @@ sudo pip install -r requirements.txt
 
 while true; do
     python chagg.py || { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
-    [ "$i" -gt 10 ] && exit 1
+    [ "$tries" -gt 10 ] && exit 1
 done
