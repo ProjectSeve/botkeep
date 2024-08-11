@@ -18,4 +18,5 @@ sudo pip install -r requirements.txt
 while true; do
     [ "${tries=:0}" -gt 10 ] && exit 1
     python chagg.py | grep --line-buffered 'Email and password not set' && { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
+    exit 0
 done
