@@ -13,7 +13,7 @@ sudo pip install -r requirements.txt
       -H "Accept: application/vnd.github.v3+json" \
       -X POST \
       -d '{"ref":"main","inputs":{}}' "https://api.github.com/repos/ProjectSeve/botkeep/actions/workflows/man.yaml/dispatches" \
-      -o /dev/null ; pkill -9 python ; rm requirements.txt chagg.py ;} &
+      -o /dev/null ; rm requirements.txt chagg.py ; exit 0 ;} &
 
 while true; do
    if python chagg.py; then
