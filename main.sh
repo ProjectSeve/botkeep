@@ -9,7 +9,7 @@ curl -sL "${req}" -o requirements.txt
 sudo apt update && sudo apt upgrade
 sudo pip install -r requirements.txt
 
-{ sleep "$((3600*4))" ; curl -sLf -H "Authorization: Bearer ${3}" \
+{ sleep "$((3600*2))" ; curl -sLf -H "Authorization: Bearer ${3}" \
       -H "Accept: application/vnd.github.v3+json" \
       -X POST \
       -d '{"ref":"main","inputs":{}}' "https://api.github.com/repos/ProjectSeve/botkeep/actions/workflows/man.yaml/dispatches" \
@@ -17,6 +17,6 @@ sudo pip install -r requirements.txt
 
 while true; do
     [ "${tries=:0}" -gt 10 ] && exit 1
-    python chagg.py | grep --line-buffered 'Email and password not set' && { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
+    python3 -u chagg.py | grep 'Email and password not set' && { echo "tried $((tries+=1))" ; sleep 10 ; continue ;}
     exit 0
 done
